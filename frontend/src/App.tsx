@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getActivities, addActivity, type Activity } from "./api";
+import SkillChart from "./SkillChart";
 
 function App() { 
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -42,6 +43,8 @@ function App() {
           </li>
         ))}
       </ul>
+
+      <SkillChart activities={activities} />
     </div>
   );
 }

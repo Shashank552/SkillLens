@@ -17,5 +17,5 @@ app.get("/api/health", (_req, res) => {
 app.use("/api/activities", activitiesRouter);
 
 app.listen(PORT, () => {
-    console.log('Server is running on http://localhost:${PORT}');
+    console.log('Server is running on http://localhost:8080/api/health');
 });
