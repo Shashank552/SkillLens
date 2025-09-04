@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { getActivities, addActivity, type Activity } from "./api";
 import SkillChart from "./SkillChart";
+import ActivityHeatmap from "./components/ActivityHeatmap";
+
 
 function App() { 
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -13,7 +15,10 @@ function App() {
 
   const handleAdd = async () => {
     if (!title || !skill) return;
-    const newActivity = await addActivity({title, skill, date: new Date().toISOString() });
+    const newActivity = await addActivity({
+      title, skill, date: new Date().toISOString(),
+      id: 0
+    });
     setActivities([...activities, newActivity]);
     setTitle("");
     setSkill("");
@@ -45,6 +50,7 @@ function App() {
       </ul>
 
       <SkillChart activities={activities} />
+      <ActivityHeatmap activities={activities} />
     </div>
   );
 }

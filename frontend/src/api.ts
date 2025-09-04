@@ -1,5 +1,5 @@
 export interface Activity {
-    id?: number;
+    id: number;
     title: string;
     skill: string;
     date: string;
